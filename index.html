@@ -49,6 +49,7 @@
 
     .carousel {
       width: 100%;
+      position: relative; /* Needed for positioning the home text */
     }
 
     .carousel-item {
@@ -64,6 +65,18 @@
       height: auto;
     }
 
+    /* Center the "Home" text on top of the background image */
+    .carousel-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+    }
+
     /* Mobile-specific styles */
     @media (max-width: 600px) {
       h1 {
@@ -76,6 +89,7 @@
 
       .carousel-content {
         font-size: 14px;
+        padding: 10px;
       }
 
       .section {
@@ -90,7 +104,8 @@
   </header>
   <nav>
     <ul>
-      <li><button class="nav-link" data-section="home">Home</button></li>
+      <!-- Use different classes for home, about, and services buttons -->
+      <li><button class="nav-link home-link" data-section="home">Home</button></li>
       <li><button class="nav-link" data-section="about">About</button></li>
       <li><button class="nav-link" data-section="services">Services</button></li>
       <li><button class="nav-link" data-section="contact">Contact</button></li>
@@ -99,7 +114,7 @@
   <main>
     <section id="home" class="section visible">
       <!-- Image as background text -->
-      <div class="background-image">
+      <div class="carousel">
         <img src="https://res.cloudinary.com/dertpfbtv/image/upload/v1690039963/car_Two_trzmep.jpg" alt="Car 1">
         <div class="carousel-content">
           <h2>Welcome to EW Taxi Services & Car Hire</h2>
@@ -144,7 +159,14 @@
   <script>
     // JavaScript code (you can include your custom scripts here)
     $(document).ready(function() {
-      $(".nav-link").click(function() {
+      // Click handler for the home link (to always show the home section)
+      $(".home-link").click(function() {
+        $(".section").removeClass("visible");
+        $("#home").addClass("visible");
+      });
+
+      // Click handler for the other links
+      $(".nav-link:not(.home-link)").click(function() {
         var sectionId = $(this).data("section");
         $(".section").removeClass("visible");
         $("#" + sectionId).addClass("visible");
