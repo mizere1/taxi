@@ -40,6 +40,11 @@
 
     .section {
       padding: 20px;
+      display: none; /* Initially hide all sections */
+    }
+
+    .visible {
+      display: block; /* Show only the section with the 'visible' class */
     }
 
     .carousel {
@@ -93,24 +98,14 @@
   </nav>
   <main>
     <section id="home" class="section visible">
-      <div class="carousel">
-        <div class="carousel-item active">
-          <img src="https://res.cloudinary.com/dertpfbtv/image/upload/v1690039963/car_Two_trzmep.jpg" alt="Car 1">
-          <div class="carousel-content">
-            <h2>Welcome to EW Taxi Services & Car Hire</h2>
-            <p>
-              Currently based in Lilongwe Area 43, EW Taxi Services & Car Hire provides reliable transportation services countrywide. Our rides offer free wifi and complimentary mineral/soft drink or water on board.
-            </p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="https://res.cloudinary.com/dertpfbtv/image/upload/v1690039963/car_one_lokze8.jpg" alt="Car 2">
-          <div class="carousel-content">
-            <h2>Welcome to EW Taxi Services & Car Hire</h2>
-            <p>
-              Currently based in Lilongwe Area 43, EW Taxi Services & Car Hire provides reliable transportation services countrywide. Our rides offer free wifi and complimentary mineral/soft drink or water on board.
-            </p>
-          </div>
+      <!-- Image as background text -->
+      <div class="background-image">
+        <img src="https://res.cloudinary.com/dertpfbtv/image/upload/v1690039963/car_Two_trzmep.jpg" alt="Car 1">
+        <div class="carousel-content">
+          <h2>Welcome to EW Taxi Services & Car Hire</h2>
+          <p>
+            Currently based in Lilongwe Area 43, EW Taxi Services & Car Hire provides reliable transportation services countrywide. Our rides offer free wifi and complimentary mineral/soft drink or water on board.
+          </p>
         </div>
       </div>
     </section>
